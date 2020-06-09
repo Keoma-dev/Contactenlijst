@@ -1,0 +1,34 @@
+﻿@model Contactenlijst.Models.ContactDetailsViewModel
+
+<strong>Naam</strong> 
+<p>@Model.Naam @Model.Voornaam</p>
+
+<strong>Geboortedatum</strong>
+<p>@Model.GeboorteDatum</p>
+
+<strong>Leeftijd</strong>
+<p>@showAge(Model.GeboorteDatum) jaar</p>
+
+<strong>Email</strong>
+<p>@Model.Email</p>
+
+<strong>Telefoonnr.</strong>
+<p>@Model.TelefoonNr</p>
+
+<strong>Adres</strong>
+<p>@Model.Adres</p>
+
+<strong>Beschrijving</strong>
+<p>@Model.Beschrijving</p>
+
+@functions
+{public int showAge(DateTime birthDate)
+    {
+        int birthYear = Convert.ToInt32(birthDate.Year);
+        int thisYear = Convert.ToInt32(DateTime.Today.Year);
+
+        return thisYear - birthYear;
+    }
+
+}
+

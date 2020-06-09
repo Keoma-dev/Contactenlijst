@@ -1,0 +1,9 @@
+﻿@model Contactenlijst.Models.ContactDeleteViewModel
+
+<form asp-controller="Contact" asp-action="confirmdelete" asp-route-id="@Model.Id" method="post">
+    <div>
+        <p>Bent u zeker dat u @Model.Naam @Model.Voornaam wil verwijderen?</p>
+        <button class="btn btn-primary" type="submit" style=" background-color: red">Contact Verwijderen</button>
+    </div>
+</form>
+<a asp-action="Contactenoverzicht" asp-controller="Contact">Terug naar Contactenoverzicht</a>

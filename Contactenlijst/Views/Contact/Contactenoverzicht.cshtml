@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ContactListViewModel>
+
+    <table>
+        <tr>
+            <th>Contacten</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Naam @item.Voornaam<a asp-controller="contact" asp-action="details" asp-route-id="@item.Id">details</a></td>
+                <td><a asp-controller="contact" asp-action="update" asp-route-id="@item.Id">Update</a></td>
+                <td><a asp-controller="contact" asp-action="delete" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </table>

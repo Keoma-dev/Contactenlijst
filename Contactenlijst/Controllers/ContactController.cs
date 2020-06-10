@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Drawing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Reflection.Metadata.Ecma335;
@@ -9,6 +10,8 @@ using Contactenlijst.Models;
 using Contactenlijst.Database;
 using Contactenlijst.Domain;
 using System.Reflection;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace Contactenlijst.Controllers
 {
@@ -28,6 +31,17 @@ namespace Contactenlijst.Controllers
         [HttpPost]
         public IActionResult Create(ContactCreateViewModel contact)
         {
+            byte[] file;
+
+            if (contact.Avatar != null)
+            {
+                file = GetBytesFromFile(contact.Avatar);
+            }
+            else
+            {
+                file = new byte[] { };
+            }
+
             Contact newContact = new Contact()
             {
                 Naam = contact.Naam,
@@ -37,7 +51,8 @@ namespace Contactenlijst.Controllers
                 Email = contact.Email,
                 TelefoonNr = contact.TelefoonNr,
                 Adres = contact.Adres,
-                Beschrijving = contact.Beschrijving
+                Beschrijving = contact.Beschrijving,
+                Avatar = file
             };
 
             _contactDatabase.Insert(newContact);
@@ -77,7 +92,8 @@ namespace Contactenlijst.Controllers
                 Email = contactFromDb.Email,
                 TelefoonNr = contactFromDb.TelefoonNr,
                 Adres = contactFromDb.Adres,
-                Beschrijving = contactFromDb.Beschrijving
+                Beschrijving = contactFromDb.Beschrijving,
+                Avatar = contactFromDb.Avatar
             };
 
             return View(contact);
@@ -107,7 +123,8 @@ namespace Contactenlijst.Controllers
                 Email = contactFromDb.Email,
                 TelefoonNr = contactFromDb.TelefoonNr,
                 Adres = contactFromDb.Adres,
-                Beschrijving = contactFromDb.Beschrijving
+                Beschrijving = contactFromDb.Beschrijving,
+                FileBytes = contactFromDb.Avatar
             };
             return View(contact);
         }
@@ -126,10 +143,34 @@ namespace Contactenlijst.Controllers
                 Adres = contact.Adres,
                 Beschrijving = contact.Beschrijving
             };
+            if (contact.Avatar != null)
+            {
+                var bytes = GetBytesFromFile(contact.Avatar);
+                domainContact.Avatar = bytes;
+            }
+            else
+            {
+                domainContact.Avatar = contact.FileBytes;
+            }
 
             _contactDatabase.Update(id, domainContact);
 
             return RedirectToAction("Details", new { Id = id });
+        }
+        public Byte[] GetBytesFromFile(IFormFile file)
+        {
+            var extension = new FileInfo(file.FileName).Extension;
+            if (extension == ".jpg" || extension == ".png" || extension == ".PNG")
+            {
+                using var memoryStream = new MemoryStream();
+                file.CopyTo(memoryStream);
+
+                return memoryStream.ToArray();
+            }
+            else
+            {
+                return new byte[] { };
+            }
         }
     }
 

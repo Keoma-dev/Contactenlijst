@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -17,5 +18,6 @@ namespace Contactenlijst.Domain
         public  int TelefoonNr { get; set; }
         public string Adres { get; set; }
         public string Beschrijving { get; set; }
+        public Byte[] Avatar { get; set; }
     }
 }

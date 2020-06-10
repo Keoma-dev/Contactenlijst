@@ -1,6 +1,6 @@
 ﻿@model Contactenlijst.Models.ContactCreateViewModel
 
-    <form asp-controller="contact" asp-action="Create" method="post">
+    <form asp-controller="contact" enctype="multipart/form-data" asp-action="Create" method="post">
         <div class="form-group">
             <label asp-for=" Naam"></label>
             <input class="form-control" asp-for="Naam" />
@@ -49,6 +49,11 @@
             <label asp-for=" Beschrijving"></label>
             <input class="form-control" asp-for="Beschrijving" />
             <span class="text-danger" asp-validation-for="Beschrijving"></span>
+        </div>
+
+        <div class="form-group">            
+                <label asp-for="Avatar"></label>
+                <input type="file"asp-for="Avatar" />           
         </div>
 
         <button class="btn btn-primary" type="submit" style=" background-color: lightgreen">Nieuw Contact</button>

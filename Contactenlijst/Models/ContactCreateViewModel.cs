@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -20,5 +21,7 @@ namespace Contactenlijst.Models
         public int TelefoonNr { get; set; }
         public string Adres { get; set; }
         public string Beschrijving { get; set; }
+
+        public IFormFile Avatar { get; set; }
     }
 }

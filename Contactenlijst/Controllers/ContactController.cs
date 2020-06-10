@@ -32,6 +32,7 @@ namespace Contactenlijst.Controllers
             {
                 Naam = contact.Naam,
                 Voornaam = contact.Voornaam,
+                Geslacht = contact.Geslacht,
                 GeboorteDatum = contact.GeboorteDatum,
                 Email = contact.Email,
                 TelefoonNr = contact.TelefoonNr,
@@ -69,6 +70,7 @@ namespace Contactenlijst.Controllers
 
             ContactDetailsViewModel contact = new ContactDetailsViewModel()
             {
+                Geslacht = contactFromDb.Geslacht,
                 Naam = contactFromDb.Naam,
                 Voornaam = contactFromDb.Voornaam,
                 GeboorteDatum = contactFromDb.GeboorteDatum,
@@ -87,7 +89,7 @@ namespace Contactenlijst.Controllers
 
             foreach (var contact in contactsFromDb)
             {
-                contacts.Add(new ContactListViewModel() { Id = contact.Id, Naam = contact.Naam, Voornaam = contact.Voornaam });
+                contacts.Add(new ContactListViewModel() { Id = contact.Id, Geslacht = contact.Geslacht, Naam = contact.Naam, Voornaam = contact.Voornaam });
             }
 
             return View(contacts);
@@ -100,6 +102,7 @@ namespace Contactenlijst.Controllers
             {
                 Naam = contactFromDb.Naam,
                 Voornaam = contactFromDb.Voornaam,
+                Geslacht = contactFromDb.Geslacht,
                 GeboorteDatum = contactFromDb.GeboorteDatum,
                 Email = contactFromDb.Email,
                 TelefoonNr = contactFromDb.TelefoonNr,
@@ -116,6 +119,7 @@ namespace Contactenlijst.Controllers
                 Id = id,
                 Naam = contact.Naam,
                 Voornaam = contact.Voornaam,
+                Geslacht = contact.Geslacht,
                 GeboorteDatum = contact.GeboorteDatum,
                 Email = contact.Email,
                 TelefoonNr = contact.TelefoonNr,
@@ -128,4 +132,5 @@ namespace Contactenlijst.Controllers
             return RedirectToAction("Details", new { Id = id });
         }
     }
+
 }

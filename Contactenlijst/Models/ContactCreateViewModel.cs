@@ -12,8 +12,11 @@ namespace Contactenlijst.Models
     {
         public string Naam { get; set; }
         public string Voornaam { get; set; }
+        public string Geslacht { get; set; }
         public DateTime GeboorteDatum { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
+        [Phone]
         public int TelefoonNr { get; set; }
         public string Adres { get; set; }
         public string Beschrijving { get; set; }

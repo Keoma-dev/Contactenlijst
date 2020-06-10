@@ -11,6 +11,7 @@ namespace Contactenlijst.Domain
         public int Id { get; set; }
         public string Naam { get; set; }
         public string Voornaam { get; set; }
+        public string Geslacht { get; set; }
         public DateTime GeboorteDatum { get; set; }
         public string Email { get; set; }
         public  int TelefoonNr { get; set; }

@@ -40,3 +40,4 @@ C:\Users\Keoma\source\repos\Contactenlijst\Contactenlijst\obj\Debug\netcoreapp3.
 C:\Users\Keoma\source\repos\Contactenlijst\Contactenlijst\obj\Debug\netcoreapp3.1\staticwebassets\Contactenlijst.StaticWebAssets.xml
 C:\Users\Keoma\source\repos\Contactenlijst\Contactenlijst\obj\Debug\netcoreapp3.1\Contactenlijst.genruntimeconfig.cache
 C:\Users\Keoma\source\repos\Contactenlijst\Contactenlijst\obj\Debug\netcoreapp3.1\Contactenlijst.csproj.CopyComplete
+C:\Users\Keoma\source\repos\Contactenlijst\Contactenlijst\obj\Debug\netcoreapp3.1\Razor\Views\Contact\FilesIndex.cshtml.g.cs

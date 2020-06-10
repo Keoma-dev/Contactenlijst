@@ -14,6 +14,14 @@
         </div>
 
         <div class="form-group">
+            <label asp-for="Geslacht">Geslacht</label>
+            <select name="Geslacht" id="Geslacht">
+                <option value="Man">Man</option>
+                <option value="Vrouw">Vrouw</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label asp-for=" GeboorteDatum"></label>
             <input class="form-control" asp-for="GeboorteDatum" />
             <span class="text-danger" asp-validation-for="GeboorteDatum"></span>

@@ -26,7 +26,8 @@ namespace Contactenlijst.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            ContactCreateViewModel vm = new ContactCreateViewModel();
+            return View(vm);
         }
         [HttpPost]
         public IActionResult Create(ContactCreateViewModel contact)

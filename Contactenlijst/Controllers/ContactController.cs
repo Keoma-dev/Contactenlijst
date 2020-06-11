@@ -52,7 +52,8 @@ namespace Contactenlijst.Controllers
                 TelefoonNr = contact.TelefoonNr,
                 Adres = contact.Adres,
                 Beschrijving = contact.Beschrijving,
-                Avatar = file
+                Avatar = file,
+                Category = contact.Category
             };
 
             _contactDatabase.Insert(newContact);
@@ -93,7 +94,8 @@ namespace Contactenlijst.Controllers
                 TelefoonNr = contactFromDb.TelefoonNr,
                 Adres = contactFromDb.Adres,
                 Beschrijving = contactFromDb.Beschrijving,
-                Avatar = contactFromDb.Avatar
+                Avatar = contactFromDb.Avatar,
+                Category = contactFromDb.Category
             };
 
             return View(contact);
@@ -124,7 +126,8 @@ namespace Contactenlijst.Controllers
                 TelefoonNr = contactFromDb.TelefoonNr,
                 Adres = contactFromDb.Adres,
                 Beschrijving = contactFromDb.Beschrijving,
-                FileBytes = contactFromDb.Avatar
+                FileBytes = contactFromDb.Avatar,
+                Category = contactFromDb.Category
             };
             return View(contact);
         }
@@ -141,7 +144,8 @@ namespace Contactenlijst.Controllers
                 Email = contact.Email,
                 TelefoonNr = contact.TelefoonNr,
                 Adres = contact.Adres,
-                Beschrijving = contact.Beschrijving
+                Beschrijving = contact.Beschrijving,
+                Category = contact.Category
             };
             if (contact.Avatar != null)
             {

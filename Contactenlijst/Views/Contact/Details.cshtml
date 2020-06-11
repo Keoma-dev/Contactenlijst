@@ -1,16 +1,17 @@
 ﻿@model Contactenlijst.Models.ContactDetailsViewModel
 
 <strong>Avatar</strong>
-<p><@if (Model.Avatar.Length > 0)
+<p>
+    <@if (Model.Avatar.Length > 0)
 {
     <img src="@ConvertBytesToImg(Model.Avatar)" style="display:block"/>
 }
 else
 {
-    <p>No avatar available</p>
+<p>No avatar available</p>
 }</p>
 
-<strong>Naam</strong> 
+<strong>Naam</strong>
 <p>@preFix(Model.Geslacht) @Model.Naam @Model.Voornaam</p>
 
 <strong>Geboortedatum</strong>
@@ -30,6 +31,9 @@ else
 
 <strong>Beschrijving</strong>
 <p>@Model.Beschrijving</p>
+
+<label asp-for="Category"></label>
+<p>@Model.Category</p>
 
 @functions
 {public int showAge(DateTime birthDate)

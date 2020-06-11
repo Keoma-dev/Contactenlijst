@@ -19,5 +19,6 @@ namespace Contactenlijst.Domain
         public string Adres { get; set; }
         public string Beschrijving { get; set; }
         public Byte[] Avatar { get; set; }
+        public string Category { get; set; }
     }
 }
